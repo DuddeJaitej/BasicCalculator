@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Project</title>
+    <script src="https://kit.fontawesome.com/0d865102a9.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            text-align: center;
+            margin-top:160px;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin-left:550px;
+            background-color:rgb(138, 205, 205);
+        }
+        #calc{
+            box-shadow:1px 5px 20px 8px rgb(6, 15, 23);
+            max-width:275px;
+            height:424px;
+            padding:5px;
+            border-radius: 1em 10%;
+            background-color:azure;
+        }
+        button{
+            width:52px;
+            height:37px;
+            padding:6px;
+            border-radius: 33em 20vh;
+            font-style: bold;
+            margin:5px;
+            background-color:cadetblue;
+            box-shadow:0px 0px 3px 1px black;
+            border-color:burlywood;
+            color:black;
+            font-size:15px;
+            opacity:0.8;
+            position:relative;
+            cursor:pointer;
+        }
+        input{
+            width:230px;
+            height:40px;
+            margin-bottom:15px;
+            box-shadow:1px 1px 4px 2px cornflowerblue;
+            border-radius: 50px;
+            font-size:23px;
+            text-align:end;
+            padding-right:15px;
+            border:none;
+            cursor:pointer;
+        }
+        h2{
+            font-size:35px;
+            color:cadetblue;
+            text-shadow: 2px 2px 2px black;
+            opacity:0.9;
+        }
+        button:hover{
+            background-color:cornflowerblue;
+            color:azure;
+            border-color:cornflowerblue;;
+            border-color:burlywood;
+            box-shadow:0px 0px 10px 3px black;
+            opacity:0.9;
+        }
+        .equal{
+            width:110px;
+        }
+       
+    </style>
+</head>
+<body>
+    <div id="calc">
+        <h2>Calculator</h2>
+        <input type="text" id="displayoutput" placeholder="0.00">
+    <div>
+        <button onclick="Clear()"> C </button>
+        <button onclick="percentage()"> % </button>
+        <button onclick="display('/')"> / </button>
+        <button onclick="del()"> <i class="fa-solid fa-delete-left"></i> </button>
+    </div>
+    <div>
+        <button onclick="display('7')"> 7 </button>
+        <button onclick="display('8')"> 8 </button>
+        <button onclick="display('9')"> 9 </button>
+        <button onclick="display('*')"> x </button>
+    </div>
+    <div>
+        <button onclick="display('4')"> 4 </button>
+        <button onclick="display('5')"> 5 </button>
+        <button onclick="display('6')"> 6 </button>
+        <button onclick="display('-')"> - </button>
+    </div>
+    <div>
+        <button onclick="display('1')"> 1 </button>
+        <button onclick="display('2')"> 2 </button>
+        <button onclick="display('3')"> 3 </button>
+        <button onclick="display('+')"> + </button>
+    </div>
+    <div>
+        <button onclick="display('.')"><b> . </b></button>
+        <button onclick="display('0')"> 0 </button>
+        <button onclick="calculate()" class="equal"> = </button>
+    </div>
+    </div>
+    <script>
+
+        var output = document.getElementById("displayoutput");
+          function display(num){
+            output.value +=num;
+          }
+          function calculate(){
+            try{
+                output.value=eval(output.value);
+            }
+            catch(error){
+               alert("Invalid");
+            }
+          }
+          function Clear(){
+            output.value= "";
+          }
+          function del(){
+            output.value=output.value.slice(0,-1);
+          }
+          function percentage(){
+            output.value=output.value/100;
+          }
+    </script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyD4D0YILoxgm4yPFaooqE2nuX2LAtcrK5Y",
+          authDomain: "basiccalculator-80efc.firebaseapp.com",
+          projectId: "basiccalculator-80efc",
+          storageBucket: "basiccalculator-80efc.appspot.com",
+          messagingSenderId: "273433516948",
+          appId: "1:273433516948:web:b3a0157eb053ed8d928d81",
+          measurementId: "G-FDFXCP2TFP"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+</body>
+</html>
